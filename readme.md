@@ -1,32 +1,51 @@
 # PraticaJava - DSList (Back-end)
 
-## Objetivo
-
-Estudo prático dos conceitos de Java, Spring Boot, JPA, modelagem relacional e API REST, conforme abordado no Intensivo Java DevSuperior.
-
-Projeto desenvolvido para estudos práticos no Intensivo Java da [DevSuperior](https://devsuperior.com.br/).
-
-Consiste apenas no back-end de uma API REST construída com Java e Spring Boot, para gerenciamento de listas e jogos, incluindo reordenação dos itens com persistência em banco PostgreSQL.
-
-## Tecnologias e Técnicas Usadas
-
-- **Java 21**
-- **Spring Boot**: Criação de APIs RESTful.
-- **Spring Data JPA (Hibernate)**: Mapeamento objeto-relacional.
-- **PostgreSQL**: Banco de dados relacional.
-- **Maven**: Gerenciamento de dependências.
-- **Arquitetura em camadas**: Separação entre Controllers, Services, Repositories e Entidades.
-- **Seed via `data.sql`**: População automática do banco em ambiente de desenvolvimento.
-- **Transações (@Transactional)**: Garantia de integridade nas operações de reordenação.
-- **Perfis de ambiente (`application-dev.properties`)**: Configuração facilitada para desenvolvimento.
+Projeto desenvolvido para estudos durante o Intensivo Java da [DevSuperior](https://devsuperior.com.br/).  
+Consiste em uma API REST em Spring Boot para catálogo e gerenciamento de listas de jogos, com persistência em PostgreSQL  
+e integração opcional com front-end React (drag-and-drop e ordenação dinâmica).
 
 ---
+
+## Tecnologias Utilizadas
+
+- **Java 21**  
+  Linguagem principal da aplicação.
+
+- **Spring Boot**  
+  Framework para desenvolvimento rápido de aplicações web e APIs RESTful.
+
+- **Spring Data JPA (Hibernate)**  
+  Abstração para persistência de dados com ORM, facilitando consultas e manipulação das entidades via repositórios.
+
+- **PostgreSQL**  
+  Banco de dados relacional utilizado para armazenar os jogos, listas e relações.
+
+- **Maven**  
+  Gerenciador de dependências e build do projeto Java.
+
+- **Arquitetura em camadas**  
+  Separação clara entre Controller (API/REST), Service (regras de negócio), Repository (acesso a dados) e Entidades.
+
+- **Seed com `data.sql`**  
+  Popular dados iniciais automaticamente no banco em ambiente de desenvolvimento.
+
+- **Transações com `@Transactional`**  
+  Garantia de atomicidade e integridade nas operações de reordenação dos itens das listas.
+
+- **Projeções JPA (DTO/Projection)**  
+  Utilização de interfaces para consultas otimizadas, buscando apenas dados necessários para exibir listas.
+
+- **Perfis de ambiente (`application-dev.properties`)**  
+  Permite fácil troca entre configurações de desenvolvimento e produção.
+
+- **Integração RESTful com frontend**  
+  Backend preparado para receber requisições do front-end React, incluindo atualização de ordenação via drag-and-drop.
+
 
 ## Como rodar
 
 1. **Configure o PostgreSQL**  
-   Crie um banco chamado `dslist` e ajuste usuário/senha em  
-   `src/main/resources/application-dev.properties`:
+   Crie um banco chamado `dslist` e ajuste usuário/senha em `src/main/resources/application-dev.properties`:
    ```properties
    spring.datasource.url=jdbc:postgresql://localhost:5432/dslist
    spring.datasource.username=postgres
@@ -43,7 +62,10 @@ Consiste apenas no back-end de uma API REST construída com Java e Spring Boot, 
    ```sh
    ./mvnw spring-boot:run
    ```
-   Ou pela sua IDE.
+   Ou pela sua IDE, rodando a classe principal.
+
+## Objetivo
+
+Praticar conceitos de Java, Spring Boot, JPA, API REST, modelagem relacional e integração full stack, conforme ensinado no Intensivo Java DevSuperior.
 
 ---
-
